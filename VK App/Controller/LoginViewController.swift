@@ -15,6 +15,12 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
+    // MARK: - sign in button pressed
+    @IBAction func signInButton_Pressed(_ sender: UIButton) {
+        print(usernameTextField.text)
+        print(passwordTextField.text)
+    }
+    
     // MARK: - uiview lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,10 +102,49 @@ class LoginViewController: UIViewController {
         self.scrollView?.endEditing(true)
     }
     
-    // MARK: - sign in button pressed
-    @IBAction func signInButton_Pressed(_ sender: UIButton) {
-        print(usernameTextField.text)
-        print(passwordTextField.text)
+    // MARK: - perform segue
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        switch identifier {
+        case Constants.goToMainSegue:
+            if !checkUser() {
+                presentAlert()
+                return false
+            } else {
+                clearData()
+                return true
+            }
+        default:
+            return false
+        }
+    }
+    
+    @IBAction func unwindToMain(unwindSegue: UIStoryboardSegue) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+
+    
+
+    
+    // MARK: - Private methods
+    private func checkUser() -> Bool {
+        usernameTextField.text == "admin" && passwordTextField.text == "123"
+    }
+    
+    private func presentAlert() {
+        let alertController = UIAlertController(
+            title: "Error",
+            message: "Incorect username or password",
+            preferredStyle: .alert)
+        let action = UIAlertAction(title: "Close", style: .cancel)
+        alertController.addAction(action)
+        present(alertController,
+                animated: true)
+    }
+    
+    private func clearData() {
+        usernameTextField.text = ""
+        passwordTextField.text = ""
     }
     
 
