@@ -7,58 +7,59 @@
 
 import UIKit
 
-class PictureCollectionViewController: UICollectionViewController {
-    var image: UIImage?
+class PictureCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
+    @IBOutlet weak var avaImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var image = UIImage()
+    var name: String = ""
+    var userId: Int = 0
+    var photos: [(UIImage, Bool)] = []
+    var isUserLiked: Bool = false
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.collectionView.register(UINib(nibName: "PictureCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: Constants.pictureCollectionCell)
         
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        avaImageView.image = image
+        avaImageView.layer.masksToBounds = true
+        avaImageView.layer.cornerRadius = 14.0
+        
+        nameLabel.text = name
+        photos.append((UIImage(named: "user\(userId)_col1")!, isUserLiked))
+        photos.append((UIImage(named: "user\(userId)_col2")!, isUserLiked))
+        
+        self.collectionView.register(UINib(nibName: "PictureCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: Constants.pictureCollectionCell)
     }
-
+    
     // MARK: UICollectionViewDataSource
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.pictureCollectionCell, for: indexPath) as! PictureCollectionViewCell //else { return UICollectionViewCell() }
-        cell.pictureImageView.image = image
+        
+        cell.setupButton(isLiked: photos[indexPath.item].1)
+        cell.pictureImageView.image = photos[indexPath.item].0
         cell.pictureImageView.layer.masksToBounds = true
         cell.pictureImageView.layer.cornerRadius = 12.0
+        let likeButton = cell.likeButton!
+        likeButton.tag = indexPath.item
+        likeButton.addTarget(self, action: #selector(likeButton_Pressed), for: .touchUpInside)
+        
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
     
+    
+    @objc func likeButton_Pressed(_ sender: UIButton) {
+        isUserLiked = !isUserLiked
+        photos[sender.tag].1 = isUserLiked
+        collectionView.reloadData()
     }
-    */
 
 }

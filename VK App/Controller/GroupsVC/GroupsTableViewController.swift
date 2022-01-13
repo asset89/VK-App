@@ -37,8 +37,6 @@ class GroupsTableViewController: UITableViewController, PassGroupProtocol {
                 }
         cell.usernameLabel.text = groups[indexPath.row].name
         cell.userAvatarImageView.image = UIImage(systemName: groups[indexPath.row].ava)
-        cell.userAvatarImageView.clipsToBounds = true
-        cell.userAvatarImageView.layer.cornerRadius = 6.0
         return cell
     }
     

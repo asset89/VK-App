@@ -37,8 +37,6 @@ class SearchTableViewController: UITableViewController {
                 }
         cell.usernameLabel.text = another_groups[indexPath.row].name
         cell.userAvatarImageView.image = UIImage(systemName: another_groups[indexPath.row].ava)
-        cell.userAvatarImageView.clipsToBounds = true
-        cell.userAvatarImageView.layer.cornerRadius = 6.0
         return cell
     }
     

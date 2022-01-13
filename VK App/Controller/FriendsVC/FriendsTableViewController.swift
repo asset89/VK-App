@@ -17,6 +17,8 @@ class FriendsTableViewController: UITableViewController {
     
     
     var passedImage: UIImage?
+    var passedName: String?
+    var passedId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +38,6 @@ class FriendsTableViewController: UITableViewController {
                 }
         cell.usernameLabel.text = friends[indexPath.row].name
         cell.userAvatarImageView.image = UIImage(named: friends[indexPath.row].ava)
-        cell.userAvatarImageView.layer.masksToBounds = true
-        cell.userAvatarImageView.layer.cornerRadius = cell.userAvatarImageView.frame.height / 2
         return cell
     }
     
@@ -50,13 +50,17 @@ class FriendsTableViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
         passedImage = UIImage(named: friends[indexPath.row].ava)
+        passedName = friends[indexPath.row].name
+        passedId = friends[indexPath.row].id
         performSegue(withIdentifier: Constants.goToCollectionSegue, sender: self)
     }
     
     // MARK: - prepare segue to pass data 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PictureCollectionViewController {
-            vc.image = passedImage
+            vc.image = passedImage!
+            vc.name = passedName!
+            vc.userId = passedId!
         }
     }
 

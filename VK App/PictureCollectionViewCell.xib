@@ -10,24 +10,35 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pictureItem" id="gTV-IL-0wX" customClass="PictureCollectionViewCell" customModule="VK_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
+            <rect key="frame" x="0.0" y="0.0" width="140" height="228"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="140" height="228"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Um-aY-wha">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="360"/>
+                        <rect key="frame" x="0.0" y="0.0" width="140" height="228"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="ynB-mj-yIb">
-                                <rect key="frame" x="8" y="16" width="224" height="328"/>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="user2" translatesAutoresizingMaskIntoConstraints="NO" id="ynB-mj-yIb">
+                                <rect key="frame" x="8" y="8" width="124" height="212"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dlb-ew-rvX">
+                                <rect key="frame" x="8" y="189" width="124" height="31"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="0">
+                                    <fontDescription key="titleFontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ynB-mj-yIb" secondAttribute="bottom" constant="16" id="UVO-ei-Jbo"/>
-                            <constraint firstItem="ynB-mj-yIb" firstAttribute="leading" secondItem="4Um-aY-wha" secondAttribute="leading" constant="8" id="ala-mx-JWr"/>
-                            <constraint firstItem="ynB-mj-yIb" firstAttribute="top" secondItem="4Um-aY-wha" secondAttribute="top" constant="16" id="bdL-Pz-vNp"/>
-                            <constraint firstAttribute="trailing" secondItem="ynB-mj-yIb" secondAttribute="trailing" constant="8" id="oeo-2e-XlO"/>
+                            <constraint firstItem="Dlb-ew-rvX" firstAttribute="bottom" secondItem="ynB-mj-yIb" secondAttribute="bottom" id="1f5-Qv-h3r"/>
+                            <constraint firstAttribute="trailing" secondItem="Dlb-ew-rvX" secondAttribute="trailing" constant="8" id="6Gf-Jq-EUx"/>
+                            <constraint firstItem="ynB-mj-yIb" firstAttribute="leading" secondItem="4Um-aY-wha" secondAttribute="leading" constant="8" id="CN3-BR-9CS"/>
+                            <constraint firstAttribute="trailing" secondItem="ynB-mj-yIb" secondAttribute="trailing" constant="8" id="H7N-2S-47U"/>
+                            <constraint firstAttribute="bottom" secondItem="Dlb-ew-rvX" secondAttribute="bottom" constant="8" id="P5b-UR-JAN"/>
+                            <constraint firstItem="ynB-mj-yIb" firstAttribute="top" secondItem="4Um-aY-wha" secondAttribute="top" constant="8" id="hkp-MC-8Uo"/>
+                            <constraint firstItem="Dlb-ew-rvX" firstAttribute="leading" secondItem="4Um-aY-wha" secondAttribute="leading" constant="8" id="lgp-6q-92b"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -39,14 +50,16 @@
                 <constraint firstItem="4Um-aY-wha" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Wq6-ZJ-Wkc"/>
                 <constraint firstAttribute="bottom" secondItem="4Um-aY-wha" secondAttribute="bottom" id="kjl-Le-Me3"/>
             </constraints>
-            <size key="customSize" width="258" height="247"/>
+            <size key="customSize" width="149" height="119"/>
             <connections>
+                <outlet property="likeButton" destination="Dlb-ew-rvX" id="nqL-t7-SrI"/>
                 <outlet property="pictureImageView" destination="ynB-mj-yIb" id="p4q-x2-GNc"/>
             </connections>
-            <point key="canvasLocation" x="286.95652173913044" y="77.678571428571431"/>
+            <point key="canvasLocation" x="207.24637681159422" y="34.821428571428569"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="user2" width="3000" height="4500"/>
     </resources>
 </document>
