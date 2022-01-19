@@ -55,7 +55,7 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
         return cell
     }
     
-    
+    // MARK: - like button pressed method
     @objc func likeButton_Pressed(_ sender: UIButton) {
         isUserLiked = !isUserLiked
         photos[sender.tag].1 = isUserLiked

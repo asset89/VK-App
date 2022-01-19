@@ -63,7 +63,7 @@ class GroupsTableViewController: UITableViewController, PassGroupProtocol {
     }
     
     // MARK: - prepare segue to pass data
-override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? SearchTableViewController {
             vc.delegate = self
         }

@@ -9,6 +9,8 @@ import UIKit
 
 class SearchTableViewController: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     let another_groups = [
         Group(id: 3, name: "Science", ava: "book.fill"),
         Group(id: 4, name: "Apple Society", ava: "applelogo"),
@@ -16,10 +18,14 @@ class SearchTableViewController: UITableViewController {
         Group(id: 6, name: "Autoclub", ava: "car.2.fill")
     ]
     
+    var filteredData: [Group]!
+    
     var delegate: PassGroupProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
+        filteredData = another_groups
         
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
         
@@ -27,7 +33,7 @@ class SearchTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return another_groups.count
+        return filteredData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,8 +41,8 @@ class SearchTableViewController: UITableViewController {
                 StandartCell else {
                     return UITableViewCell()
                 }
-        cell.usernameLabel.text = another_groups[indexPath.row].name
-        cell.userAvatarImageView.image = UIImage(systemName: another_groups[indexPath.row].ava)
+        cell.usernameLabel.text = filteredData[indexPath.row].name
+        cell.userAvatarImageView.image = UIImage(systemName: filteredData[indexPath.row].ava)
         return cell
     }
     
@@ -48,8 +54,24 @@ class SearchTableViewController: UITableViewController {
         defer {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        self.delegate!.passGroup(group: another_groups[indexPath.row])
+        self.delegate!.passGroup(group: filteredData[indexPath.row])
         navigationController?.popToRootViewController(animated: true)
     }
 
+}
+
+// MARK: - extension for searchbar 
+extension SearchTableViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredData = another_groups.filter({ $0.name == searchText })
+        filteredData = searchText.isEmpty ? another_groups : another_groups.filter({(group) in group.name.contains(searchText) })
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        tableView.reloadData()
+    }
 }
