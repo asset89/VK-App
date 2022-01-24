@@ -8,6 +8,7 @@
 import Foundation
 
 struct Constants {
+    static let goToLoginSegue = "toLoginVC"
     static let goToMainSegue = "goToMain"
     static let goToCollectionSegue = "toPictures"
     static let toSearchGroupSegue = "goToSearch"

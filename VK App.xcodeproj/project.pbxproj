@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0501B71C279E35E500552921 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B71B279E35E500552921 /* LaunchViewController.swift */; };
+		0501B71E279EF06000552921 /* SubclassedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B71D279EF06000552921 /* SubclassedUIButton.swift */; };
 		059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E471E276B9E9C006DA1EA /* AppDelegate.swift */; };
 		059E4721276B9E9C006DA1EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4720276B9E9C006DA1EA /* SceneDelegate.swift */; };
 		059E4723276B9E9C006DA1EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4722276B9E9C006DA1EA /* LoginViewController.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0501B71B279E35E500552921 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		0501B71D279EF06000552921 /* SubclassedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassedUIButton.swift; sourceTree = "<group>"; };
 		059E471B276B9E9C006DA1EA /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		059E471E276B9E9C006DA1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		059E4720276B9E9C006DA1EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		059E4732276B9F52006DA1EA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0501B71B279E35E500552921 /* LaunchViewController.swift */,
 				059E4722276B9E9C006DA1EA /* LoginViewController.swift */,
 				059E4739276CFD73006DA1EA /* FriendsVC */,
 				059E473A276CFD84006DA1EA /* GroupsVC */,
@@ -152,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				059E4740276CFE57006DA1EA /* Constant.swift */,
+				0501B71D279EF06000552921 /* SubclassedUIButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -246,12 +252,14 @@
 				059E478227738A71006DA1EA /* StandartCell.swift in Sources */,
 				059E478D2774E18F006DA1EA /* Group.swift in Sources */,
 				059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */,
+				0501B71C279E35E500552921 /* LaunchViewController.swift in Sources */,
 				059E4741276CFE57006DA1EA /* Constant.swift in Sources */,
 				059E473E276CFDDE006DA1EA /* SearchTableViewController.swift in Sources */,
 				059E473C276CFDBB006DA1EA /* PictureCollectionViewController.swift in Sources */,
 				059E4721276B9E9C006DA1EA /* SceneDelegate.swift in Sources */,
 				059E478A2774CD6B006DA1EA /* PictureCollectionViewCell.swift in Sources */,
 				059E4736276CFD55006DA1EA /* FriendsTableViewController.swift in Sources */,
+				0501B71E279EF06000552921 /* SubclassedUIButton.swift in Sources */,
 				05F031262778B47F0079F2F3 /* Friend.swift in Sources */,
 				059E478727738FC7006DA1EA /* User.swift in Sources */,
 			);

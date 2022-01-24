@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSF-eS-usH">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -9,10 +9,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Launch View Controller-->
+        <scene sceneID="T3a-I0-LvG">
+            <objects>
+                <viewController id="kSF-eS-usH" customClass="LaunchViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dpn-ib-chc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fSW-4M-858">
+                                <rect key="frame" x="125" y="402" width="140" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AGk-0n-GlL">
+                                        <rect key="frame" x="0.0" y="1" width="40" height="38.666666666666671"/>
+                                        <color key="tintColor" red="0.098039215690000001" green="0.20392156859999999" blue="0.59607843140000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="s6t-Q8-k8c"/>
+                                            <constraint firstAttribute="width" constant="40" id="tSB-wF-fM3"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="D9q-3j-CF6">
+                                        <rect key="frame" x="50" y="1" width="40" height="38.666666666666671"/>
+                                        <color key="tintColor" red="0.098039215690000001" green="0.20392156859999999" blue="0.59607843140000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="0Pf-h1-nEQ"/>
+                                            <constraint firstAttribute="width" constant="40" id="ZCw-pj-jSA"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-AI-UjZ">
+                                        <rect key="frame" x="100" y="1" width="40" height="38.666666666666671"/>
+                                        <color key="tintColor" red="0.098039215690000001" green="0.20392156859999999" blue="0.59607843140000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="TCo-la-tHG"/>
+                                            <constraint firstAttribute="width" constant="40" id="uSY-R7-CQg"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="K79-zc-Bv7"/>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.85490196080000003" blue="0.85882352939999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fSW-4M-858" firstAttribute="centerX" secondItem="Dpn-ib-chc" secondAttribute="centerX" id="BFp-Cq-sjI"/>
+                            <constraint firstItem="fSW-4M-858" firstAttribute="centerY" secondItem="Dpn-ib-chc" secondAttribute="centerY" id="iyf-2v-KiX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aA9-Bn-E3m"/>
+                    <connections>
+                        <outlet property="imageView1" destination="AGk-0n-GlL" id="hdl-Rb-C6e"/>
+                        <outlet property="imageView2" destination="D9q-3j-CF6" id="4lN-op-K0P"/>
+                        <outlet property="imageView3" destination="dKa-AI-UjZ" id="QVK-77-TP7"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="P1T-po-zn8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nbG-EI-tl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169.23076923076923" y="79.620853080568722"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.46153846153846" y="79.620853080568722"/>
+            <point key="canvasLocation" x="947.69230769230762" y="79.620853080568722"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="d56-7F-Tgy">
@@ -143,7 +200,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MQN-Vp-j89" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="80"/>
+            <point key="canvasLocation" x="1753.8461538461538" y="79.620853080568722"/>
         </scene>
         <!--Friends-->
         <scene sceneID="WBw-Cc-wZb">
@@ -201,7 +258,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndh-vg-L0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527.6923076923076" y="-181.27962085308056"/>
+            <point key="canvasLocation" x="3456.9230769230767" y="-181.27962085308056"/>
         </scene>
         <!--Groups-->
         <scene sceneID="Hhr-th-7dQ">
@@ -260,7 +317,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpN-Il-Nrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2527.6923076923076" y="554.50236966824639"/>
+            <point key="canvasLocation" x="3456.9230769230767" y="554.50236966824639"/>
         </scene>
         <!--Pictures-->
         <scene sceneID="zWo-3c-XkZ">
@@ -347,7 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xm-yF-m0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3290.7692307692305" y="-181.27962085308056"/>
+            <point key="canvasLocation" x="4220" y="-181.27962085308056"/>
         </scene>
         <!--Friends-->
         <scene sceneID="82K-CV-qQN">
@@ -371,7 +428,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJy-zt-vFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1755" y="-180"/>
+            <point key="canvasLocation" x="2683.0769230769229" y="-180.56872037914692"/>
         </scene>
         <!--Search groups-->
         <scene sceneID="IR0-dk-5bW">
@@ -434,7 +491,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zeu-xT-RMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3291" y="555"/>
+            <point key="canvasLocation" x="4220" y="554.50236966824639"/>
         </scene>
         <!--Groups-->
         <scene sceneID="Gv4-jn-iHz">
@@ -458,7 +515,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FQz-Dl-DPB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1754" y="555"/>
+            <point key="canvasLocation" x="2683.0769230769229" y="554.50236966824639"/>
         </scene>
         <!--News-->
         <scene sceneID="ztY-3v-Jg5">
@@ -515,6 +572,7 @@
     </scenes>
     <resources>
         <image name="car.2.fill" catalog="system" width="128" height="73"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="magnifyingglass.circle.fill" catalog="system" width="128" height="121"/>
         <image name="newspaper.fill" catalog="system" width="128" height="111"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>

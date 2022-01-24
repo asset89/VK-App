@@ -10,7 +10,7 @@ import UIKit
 class PictureCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var pictureImageView: UIImageView!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var likeButton: SubclassedUIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,11 +20,24 @@ class PictureCollectionViewCell: UICollectionViewCell {
     func setupButton(isLiked: Bool) {
         if isLiked {
             likeButton.setTitle("1", for: .normal)
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            animateLikes("heart.fill")
         } else {
             likeButton.setTitle("0", for: .normal)
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            animateLikes("heart")
         }
+    }
+    
+    func animateLikes(_ heart: String) {
+        UIView.transition(
+            with: likeButton,
+            duration: 0.5,
+            options: [
+                .transitionFlipFromBottom,
+            ]) {
+                self.likeButton.setImage(UIImage(systemName: heart), for: .normal)
+            } completion: { isCompleted in
+                print("complete")
+            }
     }
 
 }

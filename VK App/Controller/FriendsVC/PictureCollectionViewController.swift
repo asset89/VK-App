@@ -43,23 +43,24 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.pictureCollectionCell, for: indexPath) as! PictureCollectionViewCell //else { return UICollectionViewCell() }
-        
-        cell.setupButton(isLiked: photos[indexPath.item].1)
+        isUserLiked = photos[indexPath.item].1
         cell.pictureImageView.image = photos[indexPath.item].0
         cell.pictureImageView.layer.masksToBounds = true
         cell.pictureImageView.layer.cornerRadius = 12.0
         let likeButton = cell.likeButton!
         likeButton.tag = indexPath.item
+        likeButton.indexPath = indexPath
         likeButton.addTarget(self, action: #selector(likeButton_Pressed), for: .touchUpInside)
-        
+        cell.setupButton(isLiked: isUserLiked)
         return cell
     }
     
     // MARK: - like button pressed method
-    @objc func likeButton_Pressed(_ sender: UIButton) {
+    @objc func likeButton_Pressed(_ sender: SubclassedUIButton) {
         isUserLiked = !isUserLiked
         photos[sender.tag].1 = isUserLiked
-        collectionView.reloadData()
+        collectionView.reloadItems(at: [sender.indexPath])
     }
+    
 
 }
