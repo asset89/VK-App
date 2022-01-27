@@ -17,7 +17,8 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
     var name: String = ""
     var userId: Int = 0
     var photos: [(UIImage, Bool)] = []
-    var isUserLiked: Bool = false
+    var passedPhotos = [UIImage]()
+    var passedCurrentPhoto = UIImage()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,8 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
         avaImageView.layer.cornerRadius = 14.0
         
         nameLabel.text = name
-        photos.append((UIImage(named: "user\(userId)_col1")!, isUserLiked))
-        photos.append((UIImage(named: "user\(userId)_col2")!, isUserLiked))
+        photos.append((UIImage(named: "user\(userId)_col1")!, false))
+        photos.append((UIImage(named: "user\(userId)_col2")!, false))
         
         self.collectionView.register(UINib(nibName: "PictureCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: Constants.pictureCollectionCell)
     }
@@ -43,22 +44,36 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.pictureCollectionCell, for: indexPath) as! PictureCollectionViewCell //else { return UICollectionViewCell() }
-        isUserLiked = photos[indexPath.item].1
         cell.pictureImageView.image = photos[indexPath.item].0
         cell.pictureImageView.layer.masksToBounds = true
         cell.pictureImageView.layer.cornerRadius = 12.0
         let likeButton = cell.likeButton!
-        likeButton.tag = indexPath.item
         likeButton.indexPath = indexPath
+        likeButton.indexPath.item = indexPath.item
         likeButton.addTarget(self, action: #selector(likeButton_Pressed), for: .touchUpInside)
-        cell.setupButton(isLiked: isUserLiked)
+        cell.setupButton(isLiked: photos[indexPath.item].1)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        for photo in photos {
+            passedPhotos.append(photo.0)
+        }
+        passedCurrentPhoto = photos[indexPath.item].0
+        performSegue(withIdentifier: Constants.gogoToPictureBrowser, sender: self)
+    }
+    
+    // MARK: - prepare segue to pass data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PictureBrowserViewController {
+            vc.currentPhoto = passedCurrentPhoto
+            vc.photos = passedPhotos
+        }
     }
     
     // MARK: - like button pressed method
     @objc func likeButton_Pressed(_ sender: SubclassedUIButton) {
-        isUserLiked = !isUserLiked
-        photos[sender.tag].1 = isUserLiked
+        photos[sender.indexPath.item].1 = !photos[sender.indexPath.item].1
         collectionView.reloadItems(at: [sender.indexPath])
     }
     

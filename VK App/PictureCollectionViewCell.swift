@@ -35,8 +35,6 @@ class PictureCollectionViewCell: UICollectionViewCell {
                 .transitionFlipFromBottom,
             ]) {
                 self.likeButton.setImage(UIImage(systemName: heart), for: .normal)
-            } completion: { isCompleted in
-                print("complete")
             }
     }
 

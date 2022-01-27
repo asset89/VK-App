@@ -400,11 +400,42 @@
                         <outlet property="avaImageView" destination="12Z-Zg-wsV" id="jv8-8s-0dd"/>
                         <outlet property="collectionView" destination="4lR-tu-Sli" id="Lxe-dl-JjZ"/>
                         <outlet property="nameLabel" destination="LSe-Hv-Ppb" id="Msl-WF-n8E"/>
+                        <segue destination="XZB-CT-Gwq" kind="show" identifier="goToPictureBrowse" id="tTF-5W-haK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xm-yF-m0J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4220" y="-181.27962085308056"/>
+        </scene>
+        <!--Picture Browser View Controller-->
+        <scene sceneID="P6R-Ye-Ahz">
+            <objects>
+                <viewController id="XZB-CT-Gwq" customClass="PictureBrowserViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6YW-46-hO0">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user2_col2" translatesAutoresizingMaskIntoConstraints="NO" id="0jz-e3-w4N">
+                                <rect key="frame" x="16" y="138" width="358" height="506"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="E7q-dr-dbh"/>
+                        <color key="backgroundColor" red="0.41176470590000003" green="0.85490196080000003" blue="0.85882352939999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="0jz-e3-w4N" firstAttribute="top" secondItem="E7q-dr-dbh" secondAttribute="top" constant="50" id="JZA-wF-eNT"/>
+                            <constraint firstItem="E7q-dr-dbh" firstAttribute="trailing" secondItem="0jz-e3-w4N" secondAttribute="trailing" constant="16" id="lwi-Vi-PcU"/>
+                            <constraint firstAttribute="bottom" secondItem="0jz-e3-w4N" secondAttribute="bottom" constant="200" id="qNP-G3-vzP"/>
+                            <constraint firstItem="0jz-e3-w4N" firstAttribute="leading" secondItem="E7q-dr-dbh" secondAttribute="leading" constant="16" id="vJh-ub-fhi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MGT-WS-7RH"/>
+                    <connections>
+                        <outlet property="browserImageView" destination="0jz-e3-w4N" id="kqE-wY-9LY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLW-bK-qLu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5040" y="-179.1469194312796"/>
         </scene>
         <!--Friends-->
         <scene sceneID="82K-CV-qQN">
@@ -578,6 +609,7 @@
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="user1" width="3744" height="5616"/>
+        <image name="user2_col2" width="4206" height="2775"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

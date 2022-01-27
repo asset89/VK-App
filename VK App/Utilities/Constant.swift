@@ -12,6 +12,7 @@ struct Constants {
     static let goToMainSegue = "goToMain"
     static let goToCollectionSegue = "toPictures"
     static let toSearchGroupSegue = "goToSearch"
+    static let gogoToPictureBrowser = "goToPictureBrowse"
     
     static let standartCell = "standartCell"
     static let pictureCollectionCell = "pictureItem"
