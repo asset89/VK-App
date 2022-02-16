@@ -22,11 +22,15 @@ class FriendsTableViewController: UITableViewController {
     
     var alphabet_tuples = [(String, [String])]()
     
+    private let networkService = NetworkService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
+        networkService.fetchFriends()
         sortNames()
         tableView.reloadData()
+        
     }
 
     // MARK: - Table view data source

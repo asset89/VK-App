@@ -16,10 +16,13 @@ class GroupsTableViewController: UITableViewController, PassGroupProtocol {
     var groups = [Group(id: 0, name: "Kinoman", ava: "film.fill"),
                   Group(id: 1, name: "Music", ava: "music.note.house.fill"),
                   Group(id: 2, name: "Developers", ava: "keyboard.chevron.compact.down")]
+    
+    private let networkService = NetworkService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        networkService.fetchGroups()
         
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
 

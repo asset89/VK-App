@@ -19,6 +19,8 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
     var photos: [(UIImage, Bool)] = []
     var passedPhotos = [UIImage]()
     var passedCurrentPhoto = UIImage()
+    
+    private let networkService = NetworkService()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,8 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
         nameLabel.text = name
         photos.append((UIImage(named: "user\(userId)_col1")!, false))
         photos.append((UIImage(named: "user\(userId)_col2")!, false))
+        
+        networkService.fetchFriendPhotos("5634838")
         
         self.collectionView.register(UINib(nibName: "PictureCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: Constants.pictureCollectionCell)
     }

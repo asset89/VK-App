@@ -20,6 +20,8 @@ class SearchTableViewController: UITableViewController {
     
     var filteredData: [Group]!
     
+    private let networkService = NetworkService()
+    
     var delegate: PassGroupProtocol?
     
     override func viewDidLoad() {
@@ -64,6 +66,7 @@ class SearchTableViewController: UITableViewController {
 extension SearchTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = another_groups.filter({ $0.name == searchText })
+        networkService.fetchSearchGroupsAF(searchText)
         filteredData = searchText.isEmpty ? another_groups : another_groups.filter({(group) in group.name.contains(searchText) })
         tableView.reloadData()
     }

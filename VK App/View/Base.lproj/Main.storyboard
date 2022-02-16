@@ -12,7 +12,7 @@
         <!--Launch View Controller-->
         <scene sceneID="T3a-I0-LvG">
             <objects>
-                <viewController id="kSF-eS-usH" customClass="LaunchViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="kSF-eS-usH" customClass="LaunchViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dpn-ib-chc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,7 +59,7 @@
                         <outlet property="imageView1" destination="AGk-0n-GlL" id="hdl-Rb-C6e"/>
                         <outlet property="imageView2" destination="D9q-3j-CF6" id="4lN-op-K0P"/>
                         <outlet property="imageView3" destination="dKa-AI-UjZ" id="QVK-77-TP7"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="P1T-po-zn8"/>
+                        <segue destination="cYB-HA-42I" kind="presentation" identifier="toLoginVC" modalPresentationStyle="fullScreen" id="rY9-tL-WrI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nbG-EI-tl0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -137,7 +137,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signInButton_Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bri-RO-139"/>
-                                            <segue destination="XYd-Ki-He7" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="Evg-SQ-Dk8"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My VK App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awl-gh-Lpe">
@@ -181,12 +180,49 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.69230769230762" y="79.620853080568722"/>
+            <point key="canvasLocation" x="905" y="-573"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="TeS-hM-qNR">
+            <objects>
+                <viewController id="cYB-HA-42I" customClass="VKLoginViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vhb-xp-V6C">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jcg-K5-rUb">
+                                <rect key="frame" x="16" y="44" width="358" height="766"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HkD-67-TX9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jcg-K5-rUb" secondAttribute="trailing" id="MS1-bj-Y2t"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Jcg-K5-rUb" secondAttribute="bottom" id="Zhg-QJ-arT"/>
+                            <constraint firstItem="Jcg-K5-rUb" firstAttribute="top" secondItem="vhb-xp-V6C" secondAttribute="topMargin" id="gC6-gD-xTh"/>
+                            <constraint firstItem="Jcg-K5-rUb" firstAttribute="leading" secondItem="vhb-xp-V6C" secondAttribute="leadingMargin" id="n2n-GG-L9i"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="lpZ-pR-As8"/>
+                    <connections>
+                        <outlet property="webView" destination="Jcg-K5-rUb" id="5KS-9i-uf6"/>
+                        <segue destination="XYd-Ki-He7" kind="presentation" identifier="goToMain" modalPresentationStyle="fullScreen" id="ebK-WV-IkN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vrl-Dv-3j6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="80"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="d56-7F-Tgy">
             <objects>
                 <tabBarController id="XYd-Ki-He7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4OI-Zx-WXg"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pgC-7N-i3L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -254,9 +290,18 @@
                             <outlet property="delegate" destination="nY0-AN-dkb" id="6b2-io-PcQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Friends" id="hGd-JW-xTT"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Friends" id="hGd-JW-xTT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="yK6-53-C41">
+                            <connections>
+                                <segue destination="j3c-1w-mEs" kind="unwind" unwindAction="unwindToVKLogin:" id="WYX-Oq-GmJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ndh-vg-L0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="j3c-1w-mEs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3456.9230769230767" y="-181.27962085308056"/>
         </scene>
