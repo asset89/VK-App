@@ -13,16 +13,29 @@ protocol PassGroupProtocol {
 
 class GroupsTableViewController: UITableViewController, PassGroupProtocol {
     
-    var groups = [Group(id: 0, name: "Kinoman", ava: "film.fill"),
-                  Group(id: 1, name: "Music", ava: "music.note.house.fill"),
-                  Group(id: 2, name: "Developers", ava: "keyboard.chevron.compact.down")]
-    
+//    var groups = [Group(id: 0, name: "Kinoman", ava: "film.fill"),
+//                  Group(id: 1, name: "Music", ava: "music.note.house.fill"),
+//                  Group(id: 2, name: "Developers", ava: "keyboard.chevron.compact.down")]
+    private var groups = [Group]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
     private let networkService = NetworkService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.fetchGroups()
+        networkService.fetchGroups() { [weak self] result in
+            switch result {
+            case .success(let group):
+                self?.groups = group.response.items
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
 
@@ -39,7 +52,7 @@ class GroupsTableViewController: UITableViewController, PassGroupProtocol {
                     return UITableViewCell()
                 }
         cell.usernameLabel.text = groups[indexPath.row].name
-        cell.userAvatarImageView.image = UIImage(systemName: groups[indexPath.row].ava)
+        cell.userAvatarImageView.sd_setImage(with: URL(string: groups[indexPath.row].photo200), placeholderImage: UIImage(named: "film.fill"))
         return cell
     }
     

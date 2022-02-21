@@ -21,7 +21,7 @@ final class NetworkService {
     }()
     let session = URLSession.shared
     
-    func fetchFriends() {
+    func fetchFriends(completion: @escaping (Result<Response<FriendItem>, Error>) -> Void) {
         var constructor = urlConstructor
         constructor.path = "/method/friends.get"
         constructor.queryItems = [
@@ -29,7 +29,7 @@ final class NetworkService {
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "order", value: "name"),
             URLQueryItem(name: "count", value: "10"),
-            URLQueryItem(name: "fields", value: "nickname"),
+            URLQueryItem(name: "fields", value: "photo_200_orig"),
             URLQueryItem(name: "v", value: "5.131"),
         ]
         
@@ -39,29 +39,26 @@ final class NetworkService {
             if let response = response as? HTTPURLResponse {
                 print(response.statusCode)
             }
-            guard
-                error == nil,
-                let data = data
-            else { return }
-            let json = try? JSONSerialization.jsonObject(
-                with: data,
-                options: .allowFragments)
-            print(json)
+            guard error == nil, let data = data else { return }
+            do {
+                let friendResponse = try JSONDecoder().decode(Response<FriendItem>.self, from: data)
+                completion(.success(friendResponse))
+            } catch {
+                completion(.failure(error))
+            }
         }
         task.resume()
     }
     
-    func fetchFriendPhotos(_ id: String) {
-        //id = 5634838
+    func fetchFriendPhotos(_ id: String, completion: @escaping (Result<Response<PhotoItem>, Error>) -> Void) {
         var constructor = urlConstructor
         constructor.path = "/method/photos.getAll"
         constructor.queryItems = [
             URLQueryItem(name: "owner_id", value: id),
             URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "extended", value: "1"),
+            URLQueryItem(name: "no_service_albums", value: "0"),
             URLQueryItem(name: "count", value: "10"),
             URLQueryItem(name: "photo_sizes", value: "1"),
-            URLQueryItem(name: "need_hidden", value: "1"),
             URLQueryItem(name: "v", value: "5.131"),
         ]
         
@@ -75,15 +72,17 @@ final class NetworkService {
                 error == nil,
                 let data = data
             else { return }
-            let json = try? JSONSerialization.jsonObject(
-                with: data,
-                options: .allowFragments)
-            print(json)
+            do {
+                let photoResponse = try JSONDecoder().decode(Response<PhotoItem>.self, from: data)
+                completion(.success(photoResponse))
+            } catch {
+                completion(.failure(error))
+            }
         }
         task.resume()
     }
     
-    func fetchGroups() {
+    func fetchGroups(completion: @escaping (Result<Response<GroupItem>, Error>) -> Void) {
         var constructor = urlConstructor
         constructor.path = "/method/groups.get"
         constructor.queryItems = [
@@ -103,15 +102,17 @@ final class NetworkService {
                 error == nil,
                 let data = data
             else { return }
-            let json = try? JSONSerialization.jsonObject(
-                with: data,
-                options: .allowFragments)
-            print(json)
+            do {
+                let groupResponse = try JSONDecoder().decode(Response<GroupItem>.self, from: data)
+                completion(.success(groupResponse))
+            } catch {
+                completion(.failure(error))
+            }
         }
         task.resume()
     }
     
-    func fetchSearchGroups(_ searchText: String) {
+    func fetchSearchGroups(_ searchText: String, completion: @escaping (Result<Response<GroupItem>, Error>) -> Void) {
         var constructor = urlConstructor
         constructor.path = "/method/groups.search"
         constructor.queryItems = [
@@ -131,10 +132,12 @@ final class NetworkService {
                 error == nil,
                 let data = data
             else { return }
-            let json = try? JSONSerialization.jsonObject(
-                with: data,
-                options: .allowFragments)
-            print(json)
+            do {
+                let groupResponse = try JSONDecoder().decode(Response<GroupItem>.self, from: data)
+                completion(.success(groupResponse))
+            } catch {
+                completion(.failure(error))
+            }
         }
         task.resume()
     }

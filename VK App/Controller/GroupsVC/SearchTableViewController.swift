@@ -11,14 +11,7 @@ class SearchTableViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    let another_groups = [
-        Group(id: 3, name: "Science", ava: "book.fill"),
-        Group(id: 4, name: "Apple Society", ava: "applelogo"),
-        Group(id: 5,name: "Fashion 2022", ava: "person.2.fill"),
-        Group(id: 6, name: "Autoclub", ava: "car.2.fill")
-    ]
-    
-    var filteredData: [Group]!
+    var filteredData = [Group]()
     
     private let networkService = NetworkService()
     
@@ -27,7 +20,6 @@ class SearchTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        filteredData = another_groups
         
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
         
@@ -44,7 +36,7 @@ class SearchTableViewController: UITableViewController {
                     return UITableViewCell()
                 }
         cell.usernameLabel.text = filteredData[indexPath.row].name
-        cell.userAvatarImageView.image = UIImage(systemName: filteredData[indexPath.row].ava)
+        cell.userAvatarImageView.sd_setImage(with: URL(string: filteredData[indexPath.row].photo200), placeholderImage: UIImage(named: "film.fill"))
         return cell
     }
     
@@ -65,9 +57,14 @@ class SearchTableViewController: UITableViewController {
 // MARK: - extension for searchbar 
 extension SearchTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = another_groups.filter({ $0.name == searchText })
-        networkService.fetchSearchGroupsAF(searchText)
-        filteredData = searchText.isEmpty ? another_groups : another_groups.filter({(group) in group.name.contains(searchText) })
+        networkService.fetchSearchGroups(searchText) { [weak self] result in
+            switch result {
+            case .success(let group):
+                self?.filteredData = group.response.items
+            case .failure(let error):
+                print(error)
+            }
+        }
         tableView.reloadData()
     }
     

@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PictureBrowserViewController: UIViewController {
 
     @IBOutlet weak var browserImageView: UIImageView!
     
-    var currentPhoto = UIImage()
-    var photos: [UIImage] = []
+    var currentPhoto = ""
+    var photos: [String] = []
     var currentImage = 0
     
     private let duration = 2.0
@@ -23,8 +24,7 @@ class PictureBrowserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        browserImageView.image = currentPhoto
-        
+        browserImageView.sd_setImage(with: URL(string: currentPhoto), placeholderImage: UIImage(named: "user1"))
         for (index, photo) in photos.enumerated(){
             if photo == currentPhoto {
                 currentImage = index
@@ -88,9 +88,9 @@ class PictureBrowserViewController: UIViewController {
         case .changed:
 
             if currentImage == 0 {
-                self.browserImageView.image = self.photos[self.currentImage + 1]
+                self.browserImageView.sd_setImage(with: URL(string: self.photos[self.currentImage + 1]), placeholderImage: UIImage(named: "user1"))
             } else {
-                self.browserImageView.image = self.photos[self.currentImage - 1]
+                self.browserImageView.sd_setImage(with: URL(string: self.photos[self.currentImage - 1]), placeholderImage: UIImage(named: "user1"))
             }
             
         case .ended:

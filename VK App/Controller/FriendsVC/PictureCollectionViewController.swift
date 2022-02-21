@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PictureCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -13,12 +14,18 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var image = UIImage()
+    var image: String = ""
     var name: String = ""
     var userId: Int = 0
-    var photos: [(UIImage, Bool)] = []
-    var passedPhotos = [UIImage]()
-    var passedCurrentPhoto = UIImage()
+    var photos = [PhotoSizes]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    var passedPhotos = [String]()
+    var passedCurrentPhoto = ""
     
     private let networkService = NetworkService()
    
@@ -28,15 +35,22 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        avaImageView.image = image
+        avaImageView.sd_setImage(with: URL(string: image), placeholderImage: UIImage(named: "user1"))
         avaImageView.layer.masksToBounds = true
         avaImageView.layer.cornerRadius = 14.0
         
         nameLabel.text = name
-        photos.append((UIImage(named: "user\(userId)_col1")!, false))
-        photos.append((UIImage(named: "user\(userId)_col2")!, false))
+        //photos.append((UIImage(named: "user\(userId)_col1")!, false))
+        //photos.append((UIImage(named: "user\(userId)_col2")!, false))
         
-        networkService.fetchFriendPhotos("5634838")
+        networkService.fetchFriendPhotos("\(userId)") { [weak self] result in
+            switch result {
+            case .success(let photo):
+                self?.photos = photo.response.items
+            case .failure(let error):
+                print(error)
+            }
+        }
         
         self.collectionView.register(UINib(nibName: "PictureCollectionViewCell",bundle: nil), forCellWithReuseIdentifier: Constants.pictureCollectionCell)
     }
@@ -48,22 +62,22 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.pictureCollectionCell, for: indexPath) as! PictureCollectionViewCell //else { return UICollectionViewCell() }
-        cell.pictureImageView.image = photos[indexPath.item].0
+        cell.pictureImageView.sd_setImage(with: URL(string: photos[indexPath.item].sizes.last!.url), placeholderImage: UIImage(named: "user1"))
         cell.pictureImageView.layer.masksToBounds = true
         cell.pictureImageView.layer.cornerRadius = 12.0
         let likeButton = cell.likeButton!
         likeButton.indexPath = indexPath
         likeButton.indexPath.item = indexPath.item
         likeButton.addTarget(self, action: #selector(likeButton_Pressed), for: .touchUpInside)
-        cell.setupButton(isLiked: photos[indexPath.item].1)
+        cell.setupButton(isLiked: photos[indexPath.item].like)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
         for photo in photos {
-            passedPhotos.append(photo.0)
+            passedPhotos.append(photo.sizes.last!.url)
         }
-        passedCurrentPhoto = photos[indexPath.item].0
+        passedCurrentPhoto = photos[indexPath.item].sizes.last!.url
         performSegue(withIdentifier: Constants.gogoToPictureBrowser, sender: self)
     }
     
@@ -77,7 +91,7 @@ class PictureCollectionViewController: UIViewController, UICollectionViewDelegat
     
     // MARK: - like button pressed method
     @objc func likeButton_Pressed(_ sender: SubclassedUIButton) {
-        photos[sender.indexPath.item].1 = !photos[sender.indexPath.item].1
+        photos[sender.indexPath.item].like = !photos[sender.indexPath.item].like
         collectionView.reloadItems(at: [sender.indexPath])
     }
     

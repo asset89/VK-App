@@ -13,6 +13,8 @@
 		0501B73727B4A79000552921 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73627B4A79000552921 /* Session.swift */; };
 		0501B73927BA431D00552921 /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73827BA431D00552921 /* VKLoginViewController.swift */; };
 		0501B73C27BBF20B00552921 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73B27BBF20B00552921 /* NetworkService.swift */; };
+		0501B73E27C0E82600552921 /* Responce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73D27C0E82600552921 /* Responce.swift */; };
+		0501B74027C37D1A00552921 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73F27C37D1A00552921 /* Photos.swift */; };
 		059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E471E276B9E9C006DA1EA /* AppDelegate.swift */; };
 		059E4721276B9E9C006DA1EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4720276B9E9C006DA1EA /* SceneDelegate.swift */; };
 		059E4723276B9E9C006DA1EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4722276B9E9C006DA1EA /* LoginViewController.swift */; };
@@ -41,6 +43,8 @@
 		0501B73627B4A79000552921 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		0501B73827BA431D00552921 /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
 		0501B73B27BBF20B00552921 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0501B73D27C0E82600552921 /* Responce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responce.swift; sourceTree = "<group>"; };
+		0501B73F27C37D1A00552921 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		059E471B276B9E9C006DA1EA /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		059E471E276B9E9C006DA1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		059E4720276B9E9C006DA1EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				0501B73B27BBF20B00552921 /* NetworkService.swift */,
+				0501B73D27C0E82600552921 /* Responce.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				05F031252778B47F0079F2F3 /* Friend.swift */,
 				059E478C2774E18F006DA1EA /* Group.swift */,
 				0501B73627B4A79000552921 /* Session.swift */,
+				0501B73F27C37D1A00552921 /* Photos.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -207,7 +213,6 @@
 				1E1A0E75812DA2662960C565 /* Pods-VK App.debug.xcconfig */,
 				6D4F89B6675C8A3E07801688 /* Pods-VK App.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -336,11 +341,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0501B73E27C0E82600552921 /* Responce.swift in Sources */,
 				059E4723276B9E9C006DA1EA /* LoginViewController.swift in Sources */,
 				0501B73927BA431D00552921 /* VKLoginViewController.swift in Sources */,
 				0501B73727B4A79000552921 /* Session.swift in Sources */,
 				059E4738276CFD69006DA1EA /* GroupsTableViewController.swift in Sources */,
 				059E478227738A71006DA1EA /* StandartCell.swift in Sources */,
+				0501B74027C37D1A00552921 /* Photos.swift in Sources */,
 				059E478D2774E18F006DA1EA /* Group.swift in Sources */,
 				059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */,
 				0501B71C279E35E500552921 /* LaunchViewController.swift in Sources */,

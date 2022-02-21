@@ -6,17 +6,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FriendsTableViewController: UITableViewController {
     
-    var friends = [Friend(id: 1, name: "John Doe", ava: "user1"),
-                   Friend(id: 2, name: "Joanna Lilly", ava: "user2"),
-                   Friend(id: 3, name: "Mo Williams", ava: "user3"),
-                   Friend(id: 4, name: "Sarah Yu", ava: "user4"),
-                   Friend(id: 5, name: "Ivan Ivanov", ava: "user5")]
-    
+//    var friends = [Friend(id: 1, name: "John Doe", ava: "user1"),
+//                   Friend(id: 2, name: "Joanna Lilly", ava: "user2"),
+//                   Friend(id: 3, name: "Mo Williams", ava: "user3"),
+//                   Friend(id: 4, name: "Sarah Yu", ava: "user4"),
+//                   Friend(id: 5, name: "Ivan Ivanov", ava: "user5")]
+    private var friends = [Friend]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.sortNames()
+                self.tableView.reloadData()
+            }
+        }
+    }
     // values for passing another vc
-    var passedImage: UIImage?
+    var passedImage: String?
     var passedName: String?
     var passedId: Int?
     
@@ -27,9 +35,16 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
-        networkService.fetchFriends()
-        sortNames()
-        tableView.reloadData()
+        networkService.fetchFriends() { [weak self] result in
+            switch result {
+            case .success(let friend):
+                self?.friends = friend.response.items
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+        //tableView.reloadData()
         
     }
 
@@ -52,9 +67,11 @@ class FriendsTableViewController: UITableViewController {
                     return UITableViewCell()
                 }
         let fullname = alphabet_tuples[indexPath.section].1[indexPath.row]
-        for friend in friends where fullname == friend.name {
-            cell.usernameLabel.text = friend.name
-            cell.userAvatarImageView.image = UIImage(named: friend.ava)
+        for friend in friends where fullname == friend.lastName {
+            cell.usernameLabel.text = friend.lastName + " " + friend.firstName
+            let avaImageView = cell.userAvatarImageView!
+            avaImageView.sd_setImage(with: URL(string: friend.photo200orig), placeholderImage: UIImage(named: "user1"))
+            //cell.userAvatarImageView.image = UIImage(named: friend.ava)
         }
         return cell
     }
@@ -68,9 +85,9 @@ class FriendsTableViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true)
         }
         let fullname = alphabet_tuples[indexPath.section].1[indexPath.row]
-        for friend in friends where fullname == friend.name {
-            passedImage = UIImage(named: friend.ava)
-            passedName = friend.name
+        for friend in friends where fullname == friend.lastName {
+            passedImage = friend.photo200orig
+            passedName = friend.lastName + " " + friend.firstName
             passedId = friend.id
         }
         performSegue(withIdentifier: Constants.goToCollectionSegue, sender: self)
@@ -89,15 +106,12 @@ class FriendsTableViewController: UITableViewController {
     func sortNames() {
         var names = [String]()
         for friend in friends {
-            let name = friend.name
+            let name = friend.lastName
             names.append(name)
         }
         for name in names {
-            let nameFormatter = PersonNameComponentsFormatter()
-            if let nameComps = nameFormatter.personNameComponents(from: name), let firstLetter = nameComps.familyName?.first {
-                let letter = String(firstLetter)
-                alphabet_tuples.append((letter, names.filter({ $0.contains(nameComps.familyName!)})))
-            }
+            let letter = name.first
+            alphabet_tuples.append((String(letter!), names.filter({ $0.contains(letter!)})))
         }
         alphabet_tuples.sort {$0.0 < $1.0}
     }
