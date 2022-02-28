@@ -32,6 +32,8 @@
 		059E478A2774CD6B006DA1EA /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E47882774CD6B006DA1EA /* PictureCollectionViewCell.swift */; };
 		059E478B2774CD6B006DA1EA /* PictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059E47892774CD6B006DA1EA /* PictureCollectionViewCell.xib */; };
 		059E478D2774E18F006DA1EA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E478C2774E18F006DA1EA /* Group.swift */; };
+		05B2790127CD30B0006EB0B9 /* RealmFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2790027CD30B0006EB0B9 /* RealmFriend.swift */; };
+		05B2790327CD31E8006EB0B9 /* RealmGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2790227CD31E8006EB0B9 /* RealmGroup.swift */; };
 		05F031262778B47F0079F2F3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F031252778B47F0079F2F3 /* Friend.swift */; };
 		75B4C8A713C17C11D6322172 /* Pods_VK_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F46584635081B4176955028 /* Pods_VK_App.framework */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		059E47882774CD6B006DA1EA /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		059E47892774CD6B006DA1EA /* PictureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCollectionViewCell.xib; sourceTree = "<group>"; };
 		059E478C2774E18F006DA1EA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		05B2790027CD30B0006EB0B9 /* RealmFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFriend.swift; sourceTree = "<group>"; };
+		05B2790227CD31E8006EB0B9 /* RealmGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGroup.swift; sourceTree = "<group>"; };
 		05F031252778B47F0079F2F3 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		1E1A0E75812DA2662960C565 /* Pods-VK App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK App.debug.xcconfig"; path = "Target Support Files/Pods-VK App/Pods-VK App.debug.xcconfig"; sourceTree = "<group>"; };
 		4F46584635081B4176955028 /* Pods_VK_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +181,7 @@
 		059E473F276CFE3F006DA1EA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				05B278FF27CD3092006EB0B9 /* Realm */,
 				059E478627738FC7006DA1EA /* User.swift */,
 				05F031252778B47F0079F2F3 /* Friend.swift */,
 				059E478C2774E18F006DA1EA /* Group.swift */,
@@ -205,6 +210,15 @@
 			);
 			name = Cells;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		05B278FF27CD3092006EB0B9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				05B2790027CD30B0006EB0B9 /* RealmFriend.swift */,
+				05B2790227CD31E8006EB0B9 /* RealmGroup.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		85DDF2B6B9E4D25EBD2E6BF7 /* Pods */ = {
@@ -352,12 +366,14 @@
 				059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */,
 				0501B71C279E35E500552921 /* LaunchViewController.swift in Sources */,
 				059E4741276CFE57006DA1EA /* Constant.swift in Sources */,
+				05B2790127CD30B0006EB0B9 /* RealmFriend.swift in Sources */,
 				059E473E276CFDDE006DA1EA /* SearchTableViewController.swift in Sources */,
 				059E473C276CFDBB006DA1EA /* PictureCollectionViewController.swift in Sources */,
 				059E4721276B9E9C006DA1EA /* SceneDelegate.swift in Sources */,
 				059E478A2774CD6B006DA1EA /* PictureCollectionViewCell.swift in Sources */,
 				059E4736276CFD55006DA1EA /* FriendsTableViewController.swift in Sources */,
 				0501B73C27BBF20B00552921 /* NetworkService.swift in Sources */,
+				05B2790327CD31E8006EB0B9 /* RealmGroup.swift in Sources */,
 				0501B72027A2EA0800552921 /* PictureBrowserViewController.swift in Sources */,
 				0501B71E279EF06000552921 /* SubclassedUIButton.swift in Sources */,
 				05F031262778B47F0079F2F3 /* Friend.swift in Sources */,

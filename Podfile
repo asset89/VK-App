@@ -8,5 +8,6 @@ target 'VK App' do
   # Pods for VK App
   pod 'Alamofire', '~> 5.5'
   pod 'SDWebImage'
+  pod 'RealmSwift', '~>10'
 
 end
