@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class FriendsTableViewController: UITableViewController {
     
@@ -23,6 +24,8 @@ class FriendsTableViewController: UITableViewController {
             }
         }
     }
+    private var realmFriends: Results<RealmFriend>?
+    
     // values for passing another vc
     var passedImage: String?
     var passedName: String?
@@ -32,6 +35,11 @@ class FriendsTableViewController: UITableViewController {
     
     private let networkService = NetworkService()
     
+    fileprivate func reloadFriends() {
+        realmFriends = try? RealmService.load(typeOf: RealmFriend.self)
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "StandartCell", bundle: nil), forCellReuseIdentifier: Constants.standartCell)
@@ -39,6 +47,15 @@ class FriendsTableViewController: UITableViewController {
             switch result {
             case .success(let friend):
                 self?.friends = friend.response.items
+                //let realmFriends = friend.response.items.map { RealmFriend(friend: $0)}
+                /*DispatchQueue.main.async {
+                    do {
+                        try RealmService.save(items: realmFriends)
+                        self?.reloadFriends()
+                    } catch {
+                        print(error)
+                    }
+                }*/
             case .failure(let error):
                 print(error)
             }

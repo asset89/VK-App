@@ -7,14 +7,6 @@
 
 import Foundation
 
-//struct Response<T:Codable>: Codable {
-//    let response: T
-//
-//    enum CodingKeys: String, CodingKey {
-//        case response
-//    }
-//}
-
 struct Response<T: Codable>: Codable {
     let response: T
     
@@ -22,3 +14,7 @@ struct Response<T: Codable>: Codable {
         case response
     }
 }
+
+
+
+
