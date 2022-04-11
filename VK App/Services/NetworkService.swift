@@ -32,7 +32,6 @@ final class NetworkService {
             URLQueryItem(name: "fields", value: "photo_200_orig"),
             URLQueryItem(name: "v", value: "5.131"),
         ]
-        
         guard let url = constructor.url else { return }
         
         let task = session.dataTask(with: url) { data, response, error in
@@ -160,6 +159,67 @@ final class NetworkService {
             .responseJSON { json in
                 print(json)
             }
+    }
+    
+    func fetchNews(completion: @escaping (Result<Response<NewsItems>, Error>) -> Void) {
+        var constructor = urlConstructor
+        constructor.path = "/method/newsfeed.get"
+        constructor.queryItems = [
+            URLQueryItem(name: "user_id", value: "\(Session.instance.userID)"),
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "filters", value: "post"),
+            URLQueryItem(name: "count", value: "10"),
+            URLQueryItem(name: "v", value: "5.131"),
+        ]
+        
+        guard let url = constructor.url else { return }
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            if let response = response as? HTTPURLResponse {
+                print(response.statusCode)
+            }
+            guard
+                error == nil,
+                let data = data
+            else { return }
+            do {
+                let newsResponse = try JSONDecoder().decode(Response<NewsItems>.self, from: data)
+                completion(.success(newsResponse))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
+    }
+    
+    func fetchGroupById(id: Int, completion: @escaping (Result<Response<[Group]>, Error>) -> Void) {
+        var constructor = urlConstructor
+        constructor.path = "/method/groups.getById"
+        constructor.queryItems = [
+            URLQueryItem(name: "group_id", value: "\(-1*id)"),
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: "5.131"),
+        ]
+        
+        guard let url = constructor.url else { return }
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            if let response = response as? HTTPURLResponse {
+                print(response.statusCode)
+                //print(response.headers)
+            }
+            guard
+                error == nil,
+                let data = data
+            else { return }
+            do {
+                let groupResponse = try JSONDecoder().decode(Response<[Group]>.self, from: data)
+                completion(.success(groupResponse))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        task.resume()
     }
 
 }

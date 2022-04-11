@@ -46,16 +46,16 @@ class FriendsTableViewController: UITableViewController {
         networkService.fetchFriends() { [weak self] result in
             switch result {
             case .success(let friend):
-                //self?.friends = friend.response.items
-                let realmFriends = friend.response.items.map { RealmFriend(friend: $0)}
-                DispatchQueue.main.async {
+                self?.friends = friend.response.items
+                //let realmFriends = friend.response.items.map { RealmFriend(friend: $0)}
+                /*DispatchQueue.main.async {
                     do {
                         try RealmService.save(items: realmFriends)
                         self?.reloadFriends()
                     } catch {
                         print(error)
                     }
-                }
+                }*/
             case .failure(let error):
                 print(error)
             }
