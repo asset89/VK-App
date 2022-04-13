@@ -7,23 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0501B71C279E35E500552921 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B71B279E35E500552921 /* LaunchViewController.swift */; };
+		0501B71E279EF06000552921 /* SubclassedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B71D279EF06000552921 /* SubclassedUIButton.swift */; };
+		0501B72027A2EA0800552921 /* PictureBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B71F27A2EA0800552921 /* PictureBrowserViewController.swift */; };
+		0501B73727B4A79000552921 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73627B4A79000552921 /* Session.swift */; };
+		0501B73927BA431D00552921 /* VKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73827BA431D00552921 /* VKLoginViewController.swift */; };
+		0501B73C27BBF20B00552921 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73B27BBF20B00552921 /* NetworkService.swift */; };
+		0501B73E27C0E82600552921 /* Responce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73D27C0E82600552921 /* Responce.swift */; };
+		0501B74027C37D1A00552921 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0501B73F27C37D1A00552921 /* Photos.swift */; };
+		05286E6127FB57F700B2A625 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05286E6027FB57F700B2A625 /* NewsViewController.swift */; };
+		05286E6327FBD66F00B2A625 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05286E6227FBD66E00B2A625 /* News.swift */; };
 		059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E471E276B9E9C006DA1EA /* AppDelegate.swift */; };
 		059E4721276B9E9C006DA1EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4720276B9E9C006DA1EA /* SceneDelegate.swift */; };
-		059E4723276B9E9C006DA1EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4722276B9E9C006DA1EA /* ViewController.swift */; };
+		059E4723276B9E9C006DA1EA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4722276B9E9C006DA1EA /* LoginViewController.swift */; };
 		059E4726276B9E9C006DA1EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059E4724276B9E9C006DA1EA /* Main.storyboard */; };
 		059E4728276B9EA2006DA1EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 059E4727276B9EA2006DA1EA /* Assets.xcassets */; };
 		059E472B276B9EA2006DA1EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 059E4729276B9EA2006DA1EA /* LaunchScreen.storyboard */; };
+		059E4736276CFD55006DA1EA /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4735276CFD55006DA1EA /* FriendsTableViewController.swift */; };
+		059E4738276CFD69006DA1EA /* GroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4737276CFD69006DA1EA /* GroupsTableViewController.swift */; };
+		059E473C276CFDBB006DA1EA /* PictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E473B276CFDBA006DA1EA /* PictureCollectionViewController.swift */; };
+		059E473E276CFDDE006DA1EA /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E473D276CFDDE006DA1EA /* SearchTableViewController.swift */; };
+		059E4741276CFE57006DA1EA /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E4740276CFE57006DA1EA /* Constant.swift */; };
+		059E478227738A71006DA1EA /* StandartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E478027738A71006DA1EA /* StandartCell.swift */; };
+		059E478327738A71006DA1EA /* StandartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059E478127738A71006DA1EA /* StandartCell.xib */; };
+		059E478727738FC7006DA1EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E478627738FC7006DA1EA /* User.swift */; };
+		059E478A2774CD6B006DA1EA /* PictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E47882774CD6B006DA1EA /* PictureCollectionViewCell.swift */; };
+		059E478B2774CD6B006DA1EA /* PictureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 059E47892774CD6B006DA1EA /* PictureCollectionViewCell.xib */; };
+		059E478D2774E18F006DA1EA /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E478C2774E18F006DA1EA /* Group.swift */; };
+		05B2790127CD30B0006EB0B9 /* RealmFriend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2790027CD30B0006EB0B9 /* RealmFriend.swift */; };
+		05B2790327CD31E8006EB0B9 /* RealmGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2790227CD31E8006EB0B9 /* RealmGroup.swift */; };
+		05B2790527CD335C006EB0B9 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05B2790427CD335C006EB0B9 /* RealmService.swift */; };
+		05F031262778B47F0079F2F3 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F031252778B47F0079F2F3 /* Friend.swift */; };
+		75B4C8A713C17C11D6322172 /* Pods_VK_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F46584635081B4176955028 /* Pods_VK_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0501B71B279E35E500552921 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		0501B71D279EF06000552921 /* SubclassedUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubclassedUIButton.swift; sourceTree = "<group>"; };
+		0501B71F27A2EA0800552921 /* PictureBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureBrowserViewController.swift; sourceTree = "<group>"; };
+		0501B73627B4A79000552921 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		0501B73827BA431D00552921 /* VKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKLoginViewController.swift; sourceTree = "<group>"; };
+		0501B73B27BBF20B00552921 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0501B73D27C0E82600552921 /* Responce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Responce.swift; sourceTree = "<group>"; };
+		0501B73F27C37D1A00552921 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		05286E6027FB57F700B2A625 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		05286E6227FBD66E00B2A625 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		059E471B276B9E9C006DA1EA /* VK App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		059E471E276B9E9C006DA1EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		059E4720276B9E9C006DA1EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		059E4722276B9E9C006DA1EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		059E4722276B9E9C006DA1EA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		059E4725276B9E9C006DA1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		059E4727276B9EA2006DA1EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		059E472A276B9EA2006DA1EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		059E472C276B9EA2006DA1EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		059E4735276CFD55006DA1EA /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		059E4737276CFD69006DA1EA /* GroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsTableViewController.swift; sourceTree = "<group>"; };
+		059E473B276CFDBA006DA1EA /* PictureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewController.swift; sourceTree = "<group>"; };
+		059E473D276CFDDE006DA1EA /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		059E4740276CFE57006DA1EA /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		059E478027738A71006DA1EA /* StandartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandartCell.swift; sourceTree = "<group>"; };
+		059E478127738A71006DA1EA /* StandartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StandartCell.xib; sourceTree = "<group>"; };
+		059E478627738FC7006DA1EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		059E47882774CD6B006DA1EA /* PictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		059E47892774CD6B006DA1EA /* PictureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PictureCollectionViewCell.xib; sourceTree = "<group>"; };
+		059E478C2774E18F006DA1EA /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		05B2790027CD30B0006EB0B9 /* RealmFriend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmFriend.swift; sourceTree = "<group>"; };
+		05B2790227CD31E8006EB0B9 /* RealmGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmGroup.swift; sourceTree = "<group>"; };
+		05B2790427CD335C006EB0B9 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		05F031252778B47F0079F2F3 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		1E1A0E75812DA2662960C565 /* Pods-VK App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK App.debug.xcconfig"; path = "Target Support Files/Pods-VK App/Pods-VK App.debug.xcconfig"; sourceTree = "<group>"; };
+		4F46584635081B4176955028 /* Pods_VK_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D4F89B6675C8A3E07801688 /* Pods-VK App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK App.release.xcconfig"; path = "Target Support Files/Pods-VK App/Pods-VK App.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +85,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B4C8A713C17C11D6322172 /* Pods_VK_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0501B73A27BBF1F100552921 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0501B73B27BBF20B00552921 /* NetworkService.swift */,
+				0501B73D27C0E82600552921 /* Responce.swift */,
+				05B2790427CD335C006EB0B9 /* RealmService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		05286E5F27FB55DA00B2A625 /* NewsVC */ = {
+			isa = PBXGroup;
+			children = (
+				05286E6027FB57F700B2A625 /* NewsViewController.swift */,
+			);
+			path = NewsVC;
+			sourceTree = "<group>";
+		};
 		059E4712276B9E9C006DA1EA = {
 			isa = PBXGroup;
 			children = (
 				059E471D276B9E9C006DA1EA /* VK App */,
 				059E471C276B9E9C006DA1EA /* Products */,
+				85DDF2B6B9E4D25EBD2E6BF7 /* Pods */,
+				DBDC1ACDA346CAE1D380CE44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +131,128 @@
 		059E471D276B9E9C006DA1EA /* VK App */ = {
 			isa = PBXGroup;
 			children = (
-				059E471E276B9E9C006DA1EA /* AppDelegate.swift */,
-				059E4720276B9E9C006DA1EA /* SceneDelegate.swift */,
-				059E4722276B9E9C006DA1EA /* ViewController.swift */,
-				059E4724276B9E9C006DA1EA /* Main.storyboard */,
+				0501B73A27BBF1F100552921 /* Services */,
+				059E4734276B9F64006DA1EA /* Source */,
+				059E477E2773865D006DA1EA /* Utilities */,
+				059E473F276CFE3F006DA1EA /* Model */,
+				059E4733276B9F5C006DA1EA /* View */,
+				059E4732276B9F52006DA1EA /* Controller */,
 				059E4727276B9EA2006DA1EA /* Assets.xcassets */,
 				059E4729276B9EA2006DA1EA /* LaunchScreen.storyboard */,
 				059E472C276B9EA2006DA1EA /* Info.plist */,
 			);
 			path = "VK App";
+			sourceTree = "<group>";
+		};
+		059E4732276B9F52006DA1EA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0501B71B279E35E500552921 /* LaunchViewController.swift */,
+				0501B73827BA431D00552921 /* VKLoginViewController.swift */,
+				059E4722276B9E9C006DA1EA /* LoginViewController.swift */,
+				059E4739276CFD73006DA1EA /* FriendsVC */,
+				05286E5F27FB55DA00B2A625 /* NewsVC */,
+				059E473A276CFD84006DA1EA /* GroupsVC */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		059E4733276B9F5C006DA1EA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				059E477F27738689006DA1EA /* Cells */,
+				059E4724276B9E9C006DA1EA /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		059E4734276B9F64006DA1EA /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				059E471E276B9E9C006DA1EA /* AppDelegate.swift */,
+				059E4720276B9E9C006DA1EA /* SceneDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		059E4739276CFD73006DA1EA /* FriendsVC */ = {
+			isa = PBXGroup;
+			children = (
+				059E4735276CFD55006DA1EA /* FriendsTableViewController.swift */,
+				059E473B276CFDBA006DA1EA /* PictureCollectionViewController.swift */,
+				0501B71F27A2EA0800552921 /* PictureBrowserViewController.swift */,
+			);
+			path = FriendsVC;
+			sourceTree = "<group>";
+		};
+		059E473A276CFD84006DA1EA /* GroupsVC */ = {
+			isa = PBXGroup;
+			children = (
+				059E4737276CFD69006DA1EA /* GroupsTableViewController.swift */,
+				059E473D276CFDDE006DA1EA /* SearchTableViewController.swift */,
+			);
+			path = GroupsVC;
+			sourceTree = "<group>";
+		};
+		059E473F276CFE3F006DA1EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05B278FF27CD3092006EB0B9 /* Realm */,
+				059E478627738FC7006DA1EA /* User.swift */,
+				05F031252778B47F0079F2F3 /* Friend.swift */,
+				059E478C2774E18F006DA1EA /* Group.swift */,
+				0501B73627B4A79000552921 /* Session.swift */,
+				0501B73F27C37D1A00552921 /* Photos.swift */,
+				05286E6227FBD66E00B2A625 /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		059E477E2773865D006DA1EA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				059E4740276CFE57006DA1EA /* Constant.swift */,
+				0501B71D279EF06000552921 /* SubclassedUIButton.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		059E477F27738689006DA1EA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				059E478027738A71006DA1EA /* StandartCell.swift */,
+				059E478127738A71006DA1EA /* StandartCell.xib */,
+				059E47882774CD6B006DA1EA /* PictureCollectionViewCell.swift */,
+				059E47892774CD6B006DA1EA /* PictureCollectionViewCell.xib */,
+			);
+			name = Cells;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		05B278FF27CD3092006EB0B9 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				05B2790027CD30B0006EB0B9 /* RealmFriend.swift */,
+				05B2790227CD31E8006EB0B9 /* RealmGroup.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		85DDF2B6B9E4D25EBD2E6BF7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E1A0E75812DA2662960C565 /* Pods-VK App.debug.xcconfig */,
+				6D4F89B6675C8A3E07801688 /* Pods-VK App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DBDC1ACDA346CAE1D380CE44 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F46584635081B4176955028 /* Pods_VK_App.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +262,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 059E472F276B9EA2006DA1EA /* Build configuration list for PBXNativeTarget "VK App" */;
 			buildPhases = (
+				1BF12EF3D7466752AF6AC566 /* [CP] Check Pods Manifest.lock */,
 				059E4717276B9E9C006DA1EA /* Sources */,
 				059E4718276B9E9C006DA1EA /* Frameworks */,
 				059E4719276B9E9C006DA1EA /* Resources */,
+				30AAE096E286F122572700A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,20 +317,87 @@
 			files = (
 				059E472B276B9EA2006DA1EA /* LaunchScreen.storyboard in Resources */,
 				059E4728276B9EA2006DA1EA /* Assets.xcassets in Resources */,
+				059E478327738A71006DA1EA /* StandartCell.xib in Resources */,
+				059E478B2774CD6B006DA1EA /* PictureCollectionViewCell.xib in Resources */,
 				059E4726276B9E9C006DA1EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BF12EF3D7466752AF6AC566 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VK App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30AAE096E286F122572700A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK App/Pods-VK App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK App/Pods-VK App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VK App/Pods-VK App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		059E4717276B9E9C006DA1EA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				059E4723276B9E9C006DA1EA /* ViewController.swift in Sources */,
+				0501B73E27C0E82600552921 /* Responce.swift in Sources */,
+				059E4723276B9E9C006DA1EA /* LoginViewController.swift in Sources */,
+				0501B73927BA431D00552921 /* VKLoginViewController.swift in Sources */,
+				05286E6127FB57F700B2A625 /* NewsViewController.swift in Sources */,
+				0501B73727B4A79000552921 /* Session.swift in Sources */,
+				059E4738276CFD69006DA1EA /* GroupsTableViewController.swift in Sources */,
+				059E478227738A71006DA1EA /* StandartCell.swift in Sources */,
+				0501B74027C37D1A00552921 /* Photos.swift in Sources */,
+				05B2790527CD335C006EB0B9 /* RealmService.swift in Sources */,
+				059E478D2774E18F006DA1EA /* Group.swift in Sources */,
 				059E471F276B9E9C006DA1EA /* AppDelegate.swift in Sources */,
+				0501B71C279E35E500552921 /* LaunchViewController.swift in Sources */,
+				059E4741276CFE57006DA1EA /* Constant.swift in Sources */,
+				05B2790127CD30B0006EB0B9 /* RealmFriend.swift in Sources */,
+				059E473E276CFDDE006DA1EA /* SearchTableViewController.swift in Sources */,
+				059E473C276CFDBB006DA1EA /* PictureCollectionViewController.swift in Sources */,
 				059E4721276B9E9C006DA1EA /* SceneDelegate.swift in Sources */,
+				059E478A2774CD6B006DA1EA /* PictureCollectionViewCell.swift in Sources */,
+				059E4736276CFD55006DA1EA /* FriendsTableViewController.swift in Sources */,
+				0501B73C27BBF20B00552921 /* NetworkService.swift in Sources */,
+				05B2790327CD31E8006EB0B9 /* RealmGroup.swift in Sources */,
+				0501B72027A2EA0800552921 /* PictureBrowserViewController.swift in Sources */,
+				0501B71E279EF06000552921 /* SubclassedUIButton.swift in Sources */,
+				05F031262778B47F0079F2F3 /* Friend.swift in Sources */,
+				05286E6327FBD66F00B2A625 /* News.swift in Sources */,
+				059E478727738FC7006DA1EA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +541,7 @@
 		};
 		059E4730276B9EA2006DA1EA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E1A0E75812DA2662960C565 /* Pods-VK App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -312,6 +570,7 @@
 		};
 		059E4731276B9EA2006DA1EA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D4F89B6675C8A3E07801688 /* Pods-VK App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

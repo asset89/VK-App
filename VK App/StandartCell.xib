@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="standartCell" rowHeight="106" id="whI-Y8-1eD" customClass="StandartCell" customModule="VK_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="391" height="106"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="whI-Y8-1eD" id="KM0-d0-HeN">
+                <rect key="frame" x="0.0" y="0.0" width="391" height="106"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taP-LF-Tjs">
+                        <rect key="frame" x="20" y="15.5" width="75" height="75"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applelogo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="tqA-le-oC2">
+                                <rect key="frame" x="0.0" y="0.5" width="75" height="73.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="9gd-Aq-Lc3"/>
+                                    <constraint firstAttribute="width" secondItem="tqA-le-oC2" secondAttribute="height" multiplier="1:1" id="hMU-yS-cn2"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tqA-le-oC2" firstAttribute="centerY" secondItem="taP-LF-Tjs" secondAttribute="centerY" id="BM0-nw-vrR"/>
+                            <constraint firstItem="tqA-le-oC2" firstAttribute="centerX" secondItem="taP-LF-Tjs" secondAttribute="centerX" id="JXk-A4-wlP"/>
+                            <constraint firstAttribute="width" secondItem="tqA-le-oC2" secondAttribute="width" id="g92-DY-q0i"/>
+                            <constraint firstAttribute="width" secondItem="taP-LF-Tjs" secondAttribute="height" multiplier="1.2:1.2" id="pGu-W5-1ny"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaV-Ng-aWp">
+                        <rect key="frame" x="115" y="43.5" width="236" height="19.5"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                        <color key="textColor" red="0.098039215690000001" green="0.20392156859999999" blue="0.59607843140000005" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" systemColor="tintColor"/>
+                <constraints>
+                    <constraint firstItem="KaV-Ng-aWp" firstAttribute="leading" secondItem="taP-LF-Tjs" secondAttribute="trailing" constant="20" id="1eL-2X-OwK"/>
+                    <constraint firstItem="taP-LF-Tjs" firstAttribute="centerY" secondItem="KM0-d0-HeN" secondAttribute="centerY" id="6rh-s6-8Sh"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KaV-Ng-aWp" secondAttribute="trailing" constant="20" id="ZO6-M5-50C"/>
+                    <constraint firstItem="taP-LF-Tjs" firstAttribute="leading" secondItem="KM0-d0-HeN" secondAttribute="leading" constant="20" id="eF9-2F-eH5"/>
+                    <constraint firstItem="KaV-Ng-aWp" firstAttribute="centerY" secondItem="taP-LF-Tjs" secondAttribute="centerY" id="rfb-b7-Ya3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="2" height="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="6"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="avatarView" destination="taP-LF-Tjs" id="O2n-ja-49c"/>
+                <outlet property="userAvatarImageView" destination="tqA-le-oC2" id="VZ3-9D-Djm"/>
+                <outlet property="usernameLabel" destination="KaV-Ng-aWp" id="xkd-vf-1Mz"/>
+            </connections>
+            <point key="canvasLocation" x="132.60869565217394" y="-17.410714285714285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
