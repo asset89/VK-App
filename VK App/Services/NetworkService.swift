@@ -182,11 +182,13 @@ final class NetworkService {
                 error == nil,
                 let data = data
             else { return }
-            do {
-                let newsResponse = try JSONDecoder().decode(Response<NewsItems>.self, from: data)
-                completion(.success(newsResponse))
-            } catch {
-                completion(.failure(error))
+            DispatchQueue.global(qos: .userInitiated).async {
+                do {
+                    let newsResponse = try JSONDecoder().decode(Response<NewsItems>.self, from: data)
+                    completion(.success(newsResponse))
+                } catch {
+                    completion(.failure(error))
+                }
             }
         }
         task.resume()
@@ -206,17 +208,18 @@ final class NetworkService {
         let task = session.dataTask(with: url) { data, response, error in
             if let response = response as? HTTPURLResponse {
                 print(response.statusCode)
-                //print(response.headers)
             }
             guard
                 error == nil,
                 let data = data
             else { return }
-            do {
-                let groupResponse = try JSONDecoder().decode(Response<[Group]>.self, from: data)
-                completion(.success(groupResponse))
-            } catch {
-                completion(.failure(error))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                do {
+                    let groupResponse = try JSONDecoder().decode(Response<[Group]>.self, from: data)
+                    completion(.success(groupResponse))
+                } catch {
+                    completion(.failure(error))
+                }
             }
         }
         task.resume()
